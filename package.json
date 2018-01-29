@@ -33,6 +33,7 @@
     "react-dom": "latest",
     "react-redux": "latest",
     "react-router": "latest",
-    "redux": "latest"
+    "redux": "latest",
+    "youtube-api-search": "0.0.5"
   }
 }
