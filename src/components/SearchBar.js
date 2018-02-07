@@ -5,12 +5,18 @@ export default class SearchBar extends React.Component{
 		super(props);
 
 
-		this.state = { term: ""};
+		this.state = { 
+			term: "",
+			style :{
+				textAlign : 'center'
+			}
+		};
+				
 	}
 
 	render () {
 		return (
-			<div>
+			<div className="search-bar" style={this.state.style}>
 				<input value={this.state.term} onChange={this.onInputChange.bind(this)} /><button>Search</button>
 				<br/>
 				<p>{this.state.term}</p>
