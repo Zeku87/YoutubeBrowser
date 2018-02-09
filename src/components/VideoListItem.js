@@ -28,7 +28,10 @@ export default class VideoListItem extends React.Component{
 
 		return (
 			<div className="video-list-item" style={this.state.style}>
-				<img className="video-list-item_thumbnail" src={this.state.thumbnailUrl}/>
+				<img 
+				onClick={ () => this.props.onVideoSelect(this.props.video)} 
+				className="video-list-item_thumbnail" 
+				src={this.state.thumbnailUrl}/>
 				<p className="video-list-item_title">{this.state.title}</p>
 			</div>
 		);

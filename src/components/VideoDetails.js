@@ -12,6 +12,9 @@ export default class VideoDetails extends React.Component{
 			video_style:{
 				width: '80%',
 				height: '350px'
+			},
+			video_loader:{
+				textAlign : 'center'
 			}
 		};
 	}
@@ -32,8 +35,8 @@ export default class VideoDetails extends React.Component{
 	}
 	render(){
 
-		if(typeof(this.props.video) == 'undefined')
-			return (<div>Loading . . .</div>);
+		if(!this.props.video)
+			return (<div className="video-loader" style={this.state.video_loader}>Loading . . .</div>);
 		else
 			return this.setHTML();
 	}

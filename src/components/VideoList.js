@@ -7,7 +7,11 @@ export default class VideoList extends React.Component{
 		super(props);
 
 		this.state = {
-			style: { display:'flex', justifyContent : 'center', flexWrap: 'wrap'}
+			style: { 
+				display:'flex', 
+				justifyContent : 'center', 
+				flexWrap: 'wrap'
+			}
 		};
 
 	}
@@ -16,7 +20,9 @@ export default class VideoList extends React.Component{
 	mapVideos(){
 		const videos = this.props.videos.map((videoObject) => {
 			console.log(videoObject.id.video);
-			return (<VideoListItem key={videoObject.etag} video={videoObject} />);
+			return (<VideoListItem onVideoSelect={this.props.onVideoSelect} 
+				key={videoObject.etag} 
+				video={videoObject} />);
 		});
 
 		return videos;

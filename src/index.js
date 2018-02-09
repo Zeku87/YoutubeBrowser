@@ -12,11 +12,16 @@ class App extends React.Component{
 	constructor(props){
 		super(props);
 
-		this.state = {videos: []};
+		this.state = {
+			videos: [],
+			selectedVideo: null
+		};
 
-		youtube({key: API_KEY, term: "Avril Lavigne"}, videos => {
-			this.setState({ videos }); // videos:videos
-			console.log(this.state.videos);
+		youtube({key: API_KEY, term: "Blink 182"}, videos => {
+			this.setState({ 
+				videos:videos, 
+				selectedVideo:videos[0] 
+			});
 		});
 	}
 
@@ -24,8 +29,10 @@ class App extends React.Component{
 		return (
 		<div>
 			<SearchBar />
-			<VideoDetails video={this.state.videos[0]} />
-			<VideoList videos={this.state.videos} />
+			<VideoDetails video={this.state.selectedVideo} />
+			<VideoList 
+				onVideoSelect={selectedVideo => this.setState({selectedVideo})} 
+				videos={this.state.videos} />
 		</div>
 		);
 	}
